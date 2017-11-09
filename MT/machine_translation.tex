@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{filecontents}
+\usepackage{hyperref}
+\usepackage[]{natbib}
+
+\bibliographystyle{plain}
+
+\begin{filecontents}{references6.bib}
+@article{linzen2016assessing,
+  title={Assessing the ability of LSTMs to learn syntax-sensitive dependencies},
+  author={Linzen, Tal and Dupoux, Emmanuel and Goldberg, Yoav},
+  journal={arXiv preprint arXiv:1611.01368},
+  year={2016}
+}
+
+@article{bahdanau2016neural,
+  author    = {Dzmitry Bahdanau and
+               Kyunghyun Cho and
+               Yoshua Bengio},
+  title     = {Neural Machine Translation by Jointly Learning to Align and Translate},
+  journal   = {CoRR},
+  volume    = {abs/1409.0473},
+  year      = {2014},
+  url       = {http://arxiv.org/abs/1409.0473},
+  archivePrefix = {arXiv},
+  eprint    = {1409.0473},
+  timestamp = {Wed, 07 Jun 2017 14:40:19 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/BahdanauCB14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{belinkov2017what,
+  author    = {Yonatan Belinkov and
+               Nadir Durrani and
+               Fahim Dalvi and
+               Hassan Sajjad and
+               James R. Glass},
+  title     = {What do Neural Machine Translation Models Learn about Morphology?},
+  journal   = {CoRR},
+  volume    = {abs/1704.03471},
+  year      = {2017},
+  url       = {http://arxiv.org/abs/1704.03471},
+  archivePrefix = {arXiv},
+  eprint    = {1704.03471},
+  timestamp = {Wed, 07 Jun 2017 14:42:36 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/BelinkovDDSG17},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{hupkes2017diagnostic,
+  author    = {Dieuwke Hupkes and Willem Zuidema},
+  title     = {Visualisation and `diagnostic classifiers reveal how recurrent and recursive neural networks process hierarchical structure},
+  journal   = {JAIR},
+  volume    = {abs/1409.0473},
+  year      = {in submission},
+  url       = {http://dieuwkehupkes.nl/research/JAIR.pdf},
+}
+
+
+@article{karpathy2015visualizing,
+author = {Karpathy, Andrej and Johnson, Justin and Fei-Fei, Li},
+journal = {International Conference on Learning Representations 2016},
+pages = {1--13},
+pmid = {26353135},
+title = {Visualizing and understanding recurrent networks},
+year = {2015}
+}
+\end{filecontents}
+
+\title{What do machine translation models do?}
+
+\begin{document}
+
+\maketitle
+
+\section*{Project Description}
+
+With the introduction of neural machine translation (NMT) models, a huge leap forward has been made in the field of machine translation.
+The research leading to these successes has primarily focused on improving models' performance by increasing their number of parameters and making their training methods more sophisticated, but our understanding of what the resulting models actually encode remains poor.
+In this project, we will study an NMT model, and try to gain a better understanding of how it operates, and how it relates to more traditional machine translation models.
+We will start by exploring a trained NMT model, and get a better understanding of which (syntactic) phenomena it may find difficult or (even better) performs surprisingly well on, by running the model and looking at its output.
+After deciding which aspect in particular we would like to study, we will formulate a hypothesis about how this could be encoded in the network, and test them using state of the art visualisation and diagnostic technqiues.
+
+\section*{Requirements}
+As a final product, you will be asked to write a report with your findings, which should at least contain:\begin{itemize}
+	\item A background section, in which you write something about MT and NMT  and the problem that we are trying to address;
+    \item A description of the model that you use, and of its individual components;
+    \item A summary of your exploration on what the types of inputs the model performs well on, and what types of phenomena are challenging;
+    \item A report on your investigation of the internal dynamics of the model and the techniques you used to do so;
+    \item A conclusion/summary.
+\end{itemize}
+
+\section*{Getting Started}
+
+\paragraph{NMT} We recommend you to read \cite{bahdanau2016neural}, a paper on neural machine translation.
+An elaborate description of the model that we will use can be found at \url{http://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html}.
+Although in the first part of the project you will not yet be required to have a good understanding of all the different components of this network, if you are interested you may already have a look.
+
+\paragraph{Hypotheses}
+An important component of the success of the project is your ability to come up with interesting hypotheses concerning particular strengths and weaknesses of the model (and, in the next step, the relation of such properties to the representations it generates).
+In order to come up with an interesting hypothesis, we recommend that you experiment with sample inputs of your own choice, and develop intuitions or assumptions concerning the model’s ability to handle phenomena such as:\begin{itemize}
+    \item increasing sentence length
+    \item tenses
+    \item long distance dependencies
+    \item non-projectivity
+    \item subject-verb agreement
+    \item active/passive voice
+\end{itemize}
+
+Although we will only start to experiment with the model next week, you can already think about what kind of phenomena you might like to have a look at.
+A paper that may be taken as inspiration is \cite{belinkov2017what},  that focusses on what machine translation models learn about morphology.
+
+\paragraph{Diagnostics} There are many possible options to inspect the internal dynamics of neural networks, which one is the most appropriate to use depends largely on your specific interest in the model.
+Two techniques that we will consider are visualisation \cite{karpathy2015visualizing} and diagnostic classification \citep{hupkes2017diagnostic}.
+You will chose a method only later in the project, but you can already start reading up if you are interested.
+
+\bibliography{references6}
+
+\end{document}
+
+
